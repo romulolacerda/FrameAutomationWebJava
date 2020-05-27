@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Driver {
 
+	//CLASSE RESPONSAVEM POR ABRIR O NAVEGADOR
+	
 	private static WebDriver driver;
 
 	public static WebDriver getDriver() {
