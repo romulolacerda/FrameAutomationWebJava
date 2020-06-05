@@ -1,4 +1,4 @@
-package cursoAutomacao;
+package runner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,17 +12,14 @@ import org.openqa.selenium.WebElement;
 import core.Driver;
 import page.RegisterPage;
 
+//CLASSE RESPONSAVEL POR EXECUTAR O TESTE ATRAVES DO '@TEST'
+
 public class ExecutaCurso {
 	RegisterPage registerPage = new RegisterPage();
 	
 	@Before
 	public void abreNavegador() {
 		Driver.setDriver("http://demo.automationtesting.in/Register.html");
-	}
-
-	@After
-	public void fechaNavegador() {
-		Driver.getDriver().quit();
 	}
 
 	@Test
@@ -37,11 +34,9 @@ public class ExecutaCurso {
 		registerPage.clickGenero("Male");
 		registerPage.clickHobbie("Movies");
 		registerPage.clickHobbie("Hockey");
-		
 		String caminhoArquivo = System.getProperty("user.dir")+"\\files\\teste.jpg";
 		registerPage.setFile(caminhoArquivo);
 		registerPage.validaLogo("original.png");
-		
 		List<String> languages = new ArrayList<String>();
 		languages.add("Portuguese");
 		languages.add("English");
@@ -55,20 +50,8 @@ public class ExecutaCurso {
 		registerPage.setPassword("Teste123");
 		registerPage.setConfirmPassword("Teste123");
 		registerPage.clickSubmit();
+		Driver.aguardaTempo(5000);
 		
-		
-		aguardaTempo(5000);
-		
-	}
-
-
-	public void aguardaTempo(long tempo) {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	public void clickElementText(String map, String valor) {
@@ -80,5 +63,10 @@ public class ExecutaCurso {
 				break;
 			}
 		}
+	}
+	
+	@After
+	public void fechaNavegador() {
+		Driver.getDriver().quit();
 	}
 }

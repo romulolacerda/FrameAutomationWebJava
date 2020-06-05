@@ -1,7 +1,7 @@
 package map;
 
-import core.Element;
 import enums.ByValue;
+import utils.Element;
 
 public class RegisterMap {
 	public Element titulo = new Element("h2", ByValue.css);
@@ -26,8 +26,4 @@ public class RegisterMap {
 	public Element password = new Element("firstpassword", ByValue.id);
 	public Element confirmPassword = new Element("secondpassword", ByValue.id);
 	public Element submit = new Element("submitbtn", ByValue.id);
-	
-	
-	
-	
 }

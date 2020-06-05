@@ -20,5 +20,11 @@ public class Driver {
 		driver.manage().window().maximize();
 	}
 	
-	
+	public static void aguardaTempo(long tempo) {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }
